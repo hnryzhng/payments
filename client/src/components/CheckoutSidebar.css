@@ -1,0 +1,60 @@
+
+#checkout-sidebar {
+	/*height: 100vh;*/
+	/*padding-top: 2em;*/
+	/*position: fixed;*/
+	/*z-index: 1;*/
+	/*top: 0;*/
+	/*right: 0;*/
+	background-color: #fff;
+	overflow-x: hidden;
+
+}
+
+#checkout-sidebar-header {
+	width: 100%;
+	/*border-bottom: 1px solid #c2c2c2;*/
+}
+
+#checkout-sidebar-heading {
+	margin-top: 1.2em;
+	font-weight: 600;
+}
+
+
+#checkout-sidebar-cost-summary {
+	margin-top: 1.5em;
+}
+
+#checkout-sidebar-subtotal, #checkout-sidebar-shipping {
+	font-weight: 200;
+}
+
+#checkout-sidebar-total {
+	font-size: 1.3em;
+	font-weight: 500;
+	color: #84a9ac;
+}
+
+#checkout-sidebar-button {
+	border-radius: 3em;
+	padding: 0.5em 1.5em 0.5em 1.5em;
+}
+
+#checkout-sidebar-items-list {
+	list-style-type: none;
+}
+
+.checkout-sidebar-item-image {
+	width: 2.5em;
+	height: 2.5em;
+}
+
+.checkout-sidebar-item-name {
+	font-size: 1em;
+}
+
+.checkout-sidebar-item-price-quantity {
+	font-size: 0.8em;
+	color: #c2c2c2;
+}

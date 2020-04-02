@@ -1,0 +1,30 @@
+.card {
+	/* add to Bootstrap class */
+	margin-right: 1em;
+	margin-left: 2em;
+	margin-bottom: 2em;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.item-card {
+	font-size: 80%;
+}
+
+.item-description {
+	font-style: italic;
+	font-weight: 100;
+	color: #c4c4c4;
+}
+
+.item-price {
+	margin-top: 0.5em;
+	display: inline-block;
+	font-size: 1.8em;
+	font-weight: 500;
+
+}
+
+@media only screen and (max-width: 768px) {
+	/* for smartphones */
+
+}

@@ -1,0 +1,18 @@
+#navbar {
+	background-color: #fff;
+	height: 16vh;
+	width: 100vw;
+}
+
+@media only screen and (max-width: 768px) {
+	/* for smartphones */
+	
+	#logo-container {
+		width: 100vw;
+	}
+
+	#logo-container img {
+		/* logo */
+		margin: 0 auto;
+	}
+}

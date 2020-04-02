@@ -1,0 +1,88 @@
+
+.checkout-section {
+	margin-bottom: 2em;
+}
+
+.checkout-block {
+	padding: 1em 2em 1em 3em;
+	background-color: #fff;
+}
+
+
+#generate-user-info-link {
+	text-decoration: underline;
+	color: #000;
+}
+
+label {
+	width: 100%;
+	color: #898989;
+	font-weight: 300;
+}
+
+input {
+	outline: none;
+	border-style: none;
+}
+
+input:-webkit-autofill {
+	/* styling for auto-filled input fields */
+	-webkit-text-fill-color: #555555;
+	background-color: #fff;
+	padding-left: 1em;
+
+}
+
+.input-group-text {
+	background-color: #fff;
+}
+
+.input-field {
+	width: 80%;
+	margin-left: 2em;
+	border-bottom: 1px solid #f0f5fa;
+	background: transparent;
+	outline: none;
+	cursor: text;
+	font-weight: 400;
+}
+
+.input-field::placeholder {
+	color: #c2c2c2;
+	font-weight: 100;
+}
+
+#country {
+	background-color: #fff;
+	width: 12em;
+	height: 2em;
+}
+
+#country-label {
+	margin-right: 2em;
+}
+
+.checkout-button {
+	margin-top: 1.5em;
+}
+
+.completed {
+	padding: 1em 1em 1em 1em;
+}
+
+#credit-card-demo-message {
+	font-size: 0.8em;
+	text-decoration: italic;
+	color: #c8c8c8;
+	font-weight: 200;
+}
+
+#review-total-cost {
+	font-size: 1.4em;
+	font-weight: 500;
+}
+
+#review-shipping {
+	font-style: italic;
+}
+

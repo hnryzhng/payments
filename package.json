@@ -1,0 +1,24 @@
+{
+  "name": "Shop-N-Pay",
+  "version": "1.0.0",
+  "engines": {
+    "node": "^12.x"
+  },
+  "description": "",
+  "scripts": {
+    "start": "cd backend && npm install && node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "local": "concurrently \"cd backend && nodemon server.js\" \"cd client && npm start\"",
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "concurrently": "^5.0.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.2"
+  }
+}
