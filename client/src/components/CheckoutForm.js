@@ -132,7 +132,7 @@ class CheckoutForm extends Component {
 		// set base url depending on environment
 		const production = "https://shop-n-pay.herokuapp.com";
 		const development = "http://localhost:3000";
-		const baseURL = (process.env.NODE_ENV? production: development);
+		const baseURL = (process.env.NODE_ENV === "production"? production: development);
 
 		// form values to be sent
 		const { name, email, address, city, state, zip, country, cardName } = this.state;
@@ -190,7 +190,11 @@ class CheckoutForm extends Component {
 				.catch( err => console.log("error:", err));
 	}
 
-	submitOrder = async () => {
+	submitOrderDevServer = async () => {
+
+		// For development server only, since Stripe API allows usage of keys only in development mode
+
+		console.log("submit order dev server");
 
 		// Set section loading to true for button animation
 		this.setState({ reviewSectionLoading: true });
@@ -244,6 +248,30 @@ class CheckoutForm extends Component {
 				// TASK: still waiting for success signal, keep loading animation for x seconds
 			}			
 		}
+
+	}
+
+	submitOrderLiveServer = () => {
+
+		// For live server in production mode, since Stripe API allows usage of keys only in development mode
+
+		console.log("submit order live server");
+
+		// Set section loading to true for button animation
+		this.setState({ reviewSectionLoading: true });
+
+		// const { stripe, elements } = this.props;
+
+		// Payment has been completed
+
+		// Clear shopping cart with action dispatch
+		this.props.clearCart();
+
+		// Set section's loading to false to deactivate button loading animation
+		this.setState({ reviewSectionLoading: false });
+
+		// Set completion of Checkout page in global store with action dispatch
+		this.props.finishCheckout();
 
 	}
 
@@ -382,7 +410,7 @@ class CheckoutForm extends Component {
 						<p id="review-total-cost">Total Cost: {totalCostDisplay}</p>
 						<p id="review-shipping">Shipping: 1-day delivery</p>
 					
-						<button className="btn btn-block btn-primary checkout-button" onClick={ this.submitOrder } style={{ display: this.state.reviewSectionLoading? "none" : "block" }} >
+						<button className="btn btn-block btn-primary checkout-button" onClick={ process.env.NODE_ENV === "production"? this.submitOrderLiveServer : this.submitOrderDevServer } style={{ display: this.state.reviewSectionLoading? "none" : "block" }} >
 							Complete Your Order
 						</button>						
 

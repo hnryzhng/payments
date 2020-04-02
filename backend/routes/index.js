@@ -197,27 +197,40 @@ router.post('/create-payment-intent', async(req, res) => {
 	// Create PaymentIntent 
 	const totalCost = calcTotalCost(shoppingCartItemsArray);
 	// console.log("payment intent cost:", totalCost);
-	
-	const paymentIntent = await stripe.paymentIntents.create({
-		amount: totalCost * 100,	// convert to cents
-		currency: 'usd',
-		payment_method_types: ['card']
-		//	customer: customer.id,	// TASK: if customer is logged in
-		// 	receipt_email: email
-	});
-	console.log("paymentIntent response obj:", paymentIntent);
 
-	// If paymentIntent is successfully created
-	// Send publishable key and PaymentIntent's client secret for client-side payment confirmation
-	res.send({
-		success: true,
-		totalCost: totalCost,
-		publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
-		clientSecret: paymentIntent.client_secret
-	});
+	if (process.env.NODE_ENV === "development") {
+		// DEVELOPMENT
+		// Stripe API test keys only for development mode
+
+		const paymentIntent = await stripe.paymentIntents.create({
+			amount: totalCost * 100,	// convert to cents
+			currency: 'usd',
+			payment_method_types: ['card']
+			//	customer: customer.id,	// TASK: if customer is logged in
+			// 	receipt_email: email
+		});
+		console.log("paymentIntent response obj:", paymentIntent);
+
+		// If paymentIntent is successfully created
+		// Send publishable key and PaymentIntent's client secret for client-side payment confirmation
+		res.send({
+			success: true,
+			totalCost: totalCost,
+			publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+			clientSecret: paymentIntent.client_secret
+		});
+	} else {
+		// PRODUCTION
+		// Forgo Stripe API's keys because free tier only allows usage of keys in development environment 
+		res.send({
+			success: true,
+			totalCost: totalCost,
+			publishableKey: "notapublishablekey",
+			clientSecret: "notaclientsecret"
+		});
+	}
 
 })
-
 
 
 // Send request to Stripe API
