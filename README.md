@@ -1,1 +1,5 @@
-# SHOP-N-PAY
+# PAYMENTS
+
+Adapted from Shop-N-Pay
+
+App mode: Checkout
