@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { addCustomerInfo, addPaymentTokens, finishCheckout, clearCart } from '../actions/index.js'
+import { addCustomerInfo, addPaymentTokens, finishCheckout, addCartItem, clearCart } from '../actions/index.js'
 
 import Checkout from '../components/Checkout.js'
 
@@ -18,6 +18,7 @@ const mapDispatchToProps = dispatch => ({
 	addCustomerInfo: (obj) => dispatch(addCustomerInfo(obj)),
 	addPaymentTokens: (obj) => dispatch(addPaymentTokens(obj)),
 	finishCheckout: () => dispatch(finishCheckout()),
+	addCartItem: (id, name, price, image_path, quantity) => dispatch(addCartItem(id, name, price, image_path, quantity)),
 	clearCart: () => dispatch(clearCart())
 })
 

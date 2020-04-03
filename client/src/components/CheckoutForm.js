@@ -410,7 +410,7 @@ class CheckoutForm extends Component {
 						<p id="review-total-cost">Total Cost: {totalCostDisplay}</p>
 						<p id="review-shipping">Shipping: 1-day delivery</p>
 					
-						<button className="btn btn-block btn-primary checkout-button" onClick={ process.env.NODE_ENV === "production"? this.submitOrderLiveServer : this.submitOrderDevServer } style={{ display: this.state.reviewSectionLoading? "none" : "block" }} >
+						<button className="btn btn-block btn-primary checkout-button" onClick={ process.env.NODE_ENV === "development"?  this.submitOrderDevServer : this.submitOrderLiveServer } style={{ display: this.state.reviewSectionLoading? "none" : "block" }} >
 							Complete Your Order
 						</button>						
 

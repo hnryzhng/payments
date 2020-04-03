@@ -215,7 +215,7 @@ router.post('/create-payment-intent', async(req, res) => {
 		// Send publishable key and PaymentIntent's client secret for client-side payment confirmation
 		res.send({
 			success: true,
-			totalCost: totalCost * 100,	// total cost in pennies
+			totalCost: totalCost,	// total cost in pennies
 			publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
 			clientSecret: paymentIntent.client_secret
 		});

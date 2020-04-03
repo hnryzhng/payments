@@ -32,10 +32,31 @@ class Checkout extends Component {
 				return newItem
 			}) 
 
-			this.setState({ sCart: [ ...newList ] }, () => { console.log("CHECKOUTMODE sCart:", this.state.sCart)});
+			this.setState({ sCart: [ ...newList ] }, () => { 
+				console.log("CHECKOUTMODE sCart:", this.state.sCart);
+
+				// add cart items to global shopping cart with action dispatch
+				for (var i=0; i<this.state.sCart.length; i++) {
+					const item = this.state.sCart[i];
+					this.props.addCartItem(item.id, item.name, item.price, item.image_path, item.quantity)	// id, name, price, image_path, quantity		
+				}
+
+			});
+
 
 		} else {
-			this.setState({ sCart: [ ...this.props.shoppingCart] });
+			// app mode: full 
+
+			this.setState({ sCart: [ ...this.props.shoppingCart] }, () => {
+
+				// add cart items to global shopping cart with action dispatch
+				for (var i=0; i<this.state.sCart.length; i++) {
+					const item = this.state.sCart[i];
+					this.props.addCartItem(item.id, item.name, item.price, item.image_path, item.quantity)	// id, name, price, image_path, quantity		
+				}
+
+			});
+
 		}
 	}
 	
