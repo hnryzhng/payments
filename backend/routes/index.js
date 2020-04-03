@@ -183,7 +183,7 @@ var calcTotalCost = (itemsArray) => {
 	// console.log("final total cost:", totalCost);
 	// console.log("final total cost type:", typeof totalCost);
 
-	return parseInt(totalCost);
+	return parseInt(totalCost);	// total cost in dollars
 }
 
 router.post('/create-payment-intent', async(req, res) => {
@@ -215,7 +215,7 @@ router.post('/create-payment-intent', async(req, res) => {
 		// Send publishable key and PaymentIntent's client secret for client-side payment confirmation
 		res.send({
 			success: true,
-			totalCost: totalCost,
+			totalCost: totalCost * 100,	// total cost in pennies
 			publishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
 			clientSecret: paymentIntent.client_secret
 		});
