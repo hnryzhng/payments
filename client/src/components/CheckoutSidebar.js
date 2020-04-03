@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import './CheckoutSidebar.css'
 
-import itemImage from "./static/dress-woman-in-white-short-sleeved-dress-holding-brown-leather.jpg"
-
 class CheckoutSidebar extends Component {
 
 	state = {
@@ -64,13 +62,7 @@ class CheckoutSidebar extends Component {
 					{ 
 						this.props.shoppingCart.map((itemObj, index) => {
 							if (itemObj) {
-								return(
-									<li key={ itemObj.id } className="row d-flex align-items-center">
-										<img className="checkout-sidebar-item-image mr-md-2" src={ itemImage } alt="..." />
-										<div className="checkout-sidebar-item-name mr-md-4">{ itemObj.name }</div>
-										<div className="checkout-sidebar-item-price-quantity align-self-center">{ itemObj.quantity } X ${ itemObj.price }</div>
-									</li>
-								)
+								return(<SidebarItem key={ itemObj.id } itemObj={ itemObj }/>)
 							}
 						})
 					}
@@ -81,6 +73,24 @@ class CheckoutSidebar extends Component {
 		)
 	}
 }
+
+class SidebarItem extends Component {
+	render(){
+		const { itemObj } = this.props;
+
+		let fullImagePath;
+		fullImagePath = './static/' + itemObj.image_path;
+
+		return(
+			<li key={ itemObj.id } className="row d-flex align-items-center">
+				<img className="checkout-sidebar-item-image mr-md-2" src={ require( `${ fullImagePath }`) } alt="..." />
+				<div className="checkout-sidebar-item-name mr-md-4">{ itemObj.name }</div>
+				<div className="checkout-sidebar-item-price-quantity align-self-center">{ itemObj.quantity } X ${ itemObj.price }</div>
+			</li>
+		)
+	}
+}
+
 
 CheckoutSidebar.propTypes = {
 	shoppingCart: PropTypes.arrayOf(

@@ -20,16 +20,19 @@ class Checkout extends Component {
 		// If app mode is Checkout, then load shopping cart with three items from items list
 		// console.log('this props appMode:', this.props.appMode);
 		if (this.props.appMode === 'CHECKOUT') {
-			var itemsListCopy = [...this.props.itemsList];
+			var initialList = [...this.props.itemsList];
 
-			// Create new list of 3 items with quantity of 1 per item 
-			const newItemsList = itemsListCopy.map((item, index) => {
+			// Create list of items to be displayed with quantity of 1 per item 
+
+			var filteredList = initialList.filter( item => item.display );
+
+			const newList = filteredList.map((item, index) => {
 				var newItem = item;
 				newItem.quantity = 1
 				return newItem
 			}) 
 
-			this.setState({ sCart: [ ...newItemsList ] }, () => { console.log("CHECKOUTMODE sCart:", this.state.sCart)});
+			this.setState({ sCart: [ ...newList ] }, () => { console.log("CHECKOUTMODE sCart:", this.state.sCart)});
 
 		} else {
 			this.setState({ sCart: [ ...this.props.shoppingCart] });

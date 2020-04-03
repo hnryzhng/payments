@@ -11,7 +11,7 @@ import mockItemsList from './mock-data/mockItemsList.js';
 
 // load partial initial state based on particular key into store from mock data
 const initialStateObj = {
-	appMode: 'FULL',
+	appMode: 'CHECKOUT',
 	itemsList: mockItemsList,
 	shoppingCart: [],
 	customerInfo: {},
