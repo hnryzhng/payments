@@ -375,7 +375,7 @@ class CheckoutForm extends Component {
 
 					<div id="credit-card-fields" className="container checkout-block"  style={{ display: !this.state.shippingAddressCompleted? 'none' : 'block' }}>
 
-						<p id="credit-card-demo-message">Demo version: To proceed, type in "4242 4242 4242 4242" for card number and any value for the expiration date and CVC code.</p>
+						<p id="credit-card-demo-message">Demo version: To proceed, type in "4242 4242 4242 4242" for card number and any value for the expiration date, CVC code, and ZIP code.</p>
 
 						<CardElement options={ CARD_ELEMENT_OPTIONS } />
 						
