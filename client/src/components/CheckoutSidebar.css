@@ -45,16 +45,29 @@
 	list-style-type: none;
 }
 
+.checkout-sidebar-item {
+	margin-top: 0.5em;
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid #f2f2f2;
+}
+
 .checkout-sidebar-item-image {
-	width: 2.5em;
-	height: 2.5em;
+	/*width: 2.5em;*/
+	/*height: 2.5em;*/
+	width: 20%;
 }
 
 .checkout-sidebar-item-name {
-	font-size: 1em;
+	/*font-size: 1em;*/
+	font-size: 10%;
 }
 
 .checkout-sidebar-item-price-quantity {
-	font-size: 0.8em;
+	/*font-size: 0.8em;*/
+	font-size: 5%;
 	color: #c2c2c2;
+}
+
+.checkout-sidebar-item-line {
+	color: #fff;
 }

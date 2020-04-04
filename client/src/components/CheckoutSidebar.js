@@ -58,7 +58,7 @@ class CheckoutSidebar extends Component {
 
 				<hr className="checkout-sidebar-line" />
 
-				<ul id="cart-sidebar-items-list" className="container-fluid">
+				<ul id="checkout-sidebar-items-list" className="container-fluid">
 					{ 
 						this.props.shoppingCart.map((itemObj, index) => {
 							if (itemObj) {
@@ -82,11 +82,12 @@ class SidebarItem extends Component {
 		fullImagePath = './static/' + itemObj.image_path;
 
 		return(
-			<li key={ itemObj.id } className="row d-flex align-items-center">
+			<li key={ itemObj.id } className="checkout-sidebar-item row d-flex align-items-center">
 				<img className="checkout-sidebar-item-image mr-md-2" src={ require( `${ fullImagePath }`) } alt="..." />
 				<div className="checkout-sidebar-item-name mr-md-4">{ itemObj.name }</div>
 				<div className="checkout-sidebar-item-price-quantity align-self-center">{ itemObj.quantity } X ${ itemObj.price }</div>
 			</li>
+
 		)
 	}
 }
