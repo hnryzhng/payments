@@ -71,3 +71,12 @@
 .checkout-sidebar-item-line {
 	color: #fff;
 }
+
+
+@media only screen and (max-width: 768px) {
+	/* for smartphones */
+	
+	#checkout-sidebar {
+		display: none;
+	}
+}

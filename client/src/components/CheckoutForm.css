@@ -86,3 +86,11 @@ input:-webkit-autofill {
 	font-style: italic;
 }
 
+@media only screen and (max-width: 768px) {
+	/* for smartphones */
+	
+	.input-field {
+		width: 50%;
+	}
+
+}
