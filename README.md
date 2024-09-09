@@ -2,4 +2,4 @@
 
 App mode: Checkout
 
-Deployed on Render.com
+Web app: https://pay-your-way.onrender.com/ 
